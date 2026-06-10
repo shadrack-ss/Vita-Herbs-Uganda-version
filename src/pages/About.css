@@ -1,0 +1,162 @@
+/* About Section */
+.section {
+  padding: 80px 10px;
+}
+
+.section-alt {
+  background: var(--beige, #f9f7f3);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* Left content styling */
+.about-grid > div:first-child {
+  max-width: 100%;
+}
+
+.about-grid h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 1rem 0 1.5rem;
+  color: var(--text, #1f2937);
+}
+
+.about-grid p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--text-light, #4b5563);
+  margin-bottom: 1.5rem;
+}
+
+/* About Box (Card) */
+.about-box {
+  background: white;
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius, 16px);
+  box-shadow: var(--shadow, 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02));
+  padding: 32px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+}
+
+.about-box h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--green, #2e7d32);
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.about-box h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--green, #2e7d32);
+  border-radius: 2px;
+}
+
+.about-box ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.about-box li {
+  margin-bottom: 14px;
+  padding-left: 28px;
+  position: relative;
+  color: var(--text-light, #4b5563);
+  line-height: 1.5;
+}
+
+.about-box li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--green, #2e7d32);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.about-box li:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 960px) {
+  .section {
+    padding: 60px 10px;
+  }
+  
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .about-grid h2 {
+    font-size: 2rem;
+  }
+  
+  .about-box {
+    padding: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 48px 10px;
+  }
+  
+  .about-grid {
+    gap: 32px;
+  }
+  
+  .about-grid h2 {
+    font-size: 1.75rem;
+  }
+  
+  .about-grid p {
+    font-size: 1rem;
+  }
+  
+  .about-box {
+    padding: 24px;
+  }
+  
+  .about-box h3 {
+    font-size: 1.35rem;
+  }
+  
+  .about-box li {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 0;
+  }
+  
+  .about-box {
+    padding: 20px;
+  }
+  
+  .about-box h3::after {
+    width: 40px;
+  }
+}
