@@ -1,7 +1,41 @@
-.section {
-  padding: 80px 0;
+/*
+   PRODUCTS SECTION STYLES
+   */
+
+/* Variables */
+:root {
+  --green: #2e7d32;
+  --green-dark: #1b5e20;
+  --green-light: #4caf50;
+  --gold: #d4af37;
+  --text-dark: #1f2937;
+  --text-light: #4b5563;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
+  --bg-light: #f9fafb;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  --radius: 16px;
+  --radius-sm: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Container */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Section */
+.section {
+  padding: 80px 0;
+  background: var(--bg-light);
+}
+
+/* Section Heading */
 .section-heading {
   text-align: center;
   margin-bottom: 48px;
@@ -9,52 +43,62 @@
 
 .section-heading .eyebrow {
   display: inline-block;
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--green, #2e7d32);
-  margin-bottom: 1rem;
+  letter-spacing: 4px;
+  color: var(--gold);
+  margin-bottom: 16px;
 }
 
 .section-heading h2 {
-  font-size: 2.5rem;
+  font-size: 36px;
   font-weight: 700;
-  color: var(--text, #1f2937);
-  margin-bottom: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 16px;
 }
 
 .section-heading p {
-  font-size: 1.125rem;
-  color: var(--text-light, #4b5563);
+  font-size: 18px;
+  color: var(--text-light);
   max-width: 600px;
   margin: 0 auto;
 }
 
+/* Cards Grid - CENTERED with REDUCED WIDTH */
 .cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: center;
   gap: 30px;
+  flex-wrap: wrap;
 }
 
+/* Individual Card - REDUCED WIDTH */
 .card {
   background: white;
-  border-radius: 16px;
+  border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  border: 1px solid var(--border, #e5e7eb);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  width: 280px;  /* Fixed reduced width */
+  max-width: 100%;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-xl);
 }
 
+/* Image Container */
 .card img {
   width: 100%;
-  height: 240px;
+  height: 200px;
   object-fit: cover;
+  object-position: center;
+  display: block;
   transition: transform 0.5s ease;
 }
 
@@ -62,43 +106,53 @@
   transform: scale(1.05);
 }
 
+/* Card Body */
 .card-body {
-  padding: 24px;
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-body h3 {
-  font-size: 1.35rem;
+  font-size: 18px;
   font-weight: 700;
-  color: var(--text, #1f2937);
-  margin-bottom: 12px;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  line-height: 1.3;
 }
 
 .card-body p {
-  font-size: 0.95rem;
+  font-size: 13px;
   line-height: 1.5;
-  color: var(--text-light, #4b5563);
-  margin-bottom: 20px;
+  color: var(--text-light);
+  margin-bottom: 16px;
+  flex: 1;
 }
 
+/* Order Link */
 .card-body a {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--green, #2e7d32);
-  font-weight: 700;
+  color: var(--green);
+  font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
-  padding: 8px 0;
+  transition: var(--transition);
+  padding: 6px 0;
+  margin-top: auto;
+  align-self: flex-start;
+  font-size: 13px;
 }
 
 .card-body a::before {
   content: "💬";
-  font-size: 1rem;
+  font-size: 14px;
   transition: transform 0.3s ease;
 }
 
 .card-body a:hover {
-  color: var(--green-dark, #1b5e20);
+  color: var(--green-dark);
   gap: 12px;
 }
 
@@ -106,33 +160,72 @@
   transform: scale(1.1);
 }
 
+/*
+   RESPONSIVE DESIGN
+   */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .card {
+    width: 260px;
+  }
+  
+  .card img {
+    height: 180px;
+  }
+}
+
+/* Mobile Landscape */
 @media (max-width: 960px) {
   .section {
     padding: 60px 0;
   }
   
   .cards {
-    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
   
-  .section-heading h2 {
-    font-size: 2rem;
+  .card {
+    width: 240px;
   }
   
   .card img {
-    height: 220px;
+    height: 170px;
+  }
+  
+  .section-heading h2 {
+    font-size: 32px;
+  }
+  
+  .section-heading p {
+    font-size: 16px;
+  }
+}
+
+/* Mobile Portrait */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  .card img {
+    height: 200px;
   }
 }
 
 @media (max-width: 640px) {
   .section {
-    padding: 48px 10px;
+    padding: 48px 0;
   }
   
-  .cards {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  .container {
+    padding: 0 16px;
   }
   
   .section-heading {
@@ -140,22 +233,78 @@
   }
   
   .section-heading h2 {
-    font-size: 1.75rem;
+    font-size: 38px;
   }
   
   .section-heading p {
-    font-size: 1rem;
+    font-size: 24px;
+  }
+  
+  .card {
+    max-width: 300px;
   }
   
   .card img {
-    height: 200px;
+    height: 180px;
   }
   
   .card-body {
-    padding: 20px;
+    padding: 16px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+  
+  .section-heading h2 {
+    font-size: 24px;
+  }
+  
+  .card {
+    max-width: 280px;
+  }
+  
+  .card img {
+    height: 160px;
+  }
+  
+  .card-body {
+    padding: 14px;
   }
   
   .card-body h3 {
-    font-size: 1.25rem;
+    font-size: 16px;
+  }
+  
+  .card-body p {
+    font-size: 12px;
   }
 }
+
+/*
+   ANIMATIONS
+   */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeInUp 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.card:nth-child(1) { animation-delay: 0.05s; }
+.card:nth-child(2) { animation-delay: 0.1s; }
+.card:nth-child(3) { animation-delay: 0.15s; }

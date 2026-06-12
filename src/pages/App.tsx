@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/ui/Header';
-import Footer from './components/ui/footer';
-import Home from './pages/Home';
-import About from './pages/About';
-import Products from './pages/Products';
-import Contact from './pages/Contact';
-import Socials from './pages/Socials';
+import Header from '../components/ui/Header';
+import Footer from '../components/ui/Footer';
+import Home from './Home';
+import About from './About';
+import Products from './Products';
+import Contact from './Contact';
+import Socials from './Socials';
 
 function App() {
   return (
